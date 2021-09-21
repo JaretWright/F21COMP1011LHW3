@@ -88,6 +88,10 @@ public class HandSanitizerBottlerCreatorViewController implements Initializable 
             sliderLabel.setText(String.format("%.1f%%",newValue));
         });
 
+        //configuring the spinner with minimum, max, default and increment
+        SpinnerValueFactory<Integer> spinnerValueFactory= new SpinnerValueFactory.IntegerSpinnerValueFactory(100,500,200,50);
+        volumeSpinner.setValueFactory(spinnerValueFactory);
+
     }
 
 
