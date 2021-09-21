@@ -4,10 +4,10 @@ public class HandSanitizerBottle {
     private String company, brandName;
     private boolean scented;
     private int volumeOfBottle, volumeInBottle;
-    private float alcoholPercentage;
+    private double alcoholPercentage;
     private boolean bottleTypePump, refillable;
 
-    public HandSanitizerBottle(String company, String brandName, boolean scented, int volumeOfBottle, float alcoholPercentage,
+    public HandSanitizerBottle(String company, String brandName, boolean scented, int volumeOfBottle, double alcoholPercentage,
                                boolean bottleTypePump, boolean refillable) {
         setCompany(company);
         setBrandName(brandName);
@@ -70,11 +70,11 @@ public class HandSanitizerBottle {
             throw new IllegalArgumentException("Volume must be greater than 0");
     }
 
-    public float getAlcoholPercentage() {
+    public double getAlcoholPercentage() {
         return alcoholPercentage;
     }
 
-    public void setAlcoholPercentage(float alcoholPercentage) {
+    public void setAlcoholPercentage(double alcoholPercentage) {
         this.alcoholPercentage = alcoholPercentage;
     }
 

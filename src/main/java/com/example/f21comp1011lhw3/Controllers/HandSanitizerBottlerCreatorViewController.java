@@ -6,6 +6,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -51,12 +52,12 @@ public class HandSanitizerBottlerCreatorViewController implements Initializable 
         boolean refillable = refillableCheckBox.isSelected();
         boolean pumpBottle = pumpBottleCheckBox.isSelected();
         boolean scented = scentedCheckBox.isSelected();
-        float alcohol = 40;
-        int volumeOfBottle = 500;
+        double alcohol = alcoholSlider.getValue();
+        int volumeOfBottle = volumeSpinner.getValue();
 
         try{
             HandSanitizerBottle hsb = new HandSanitizerBottle(company,brand,scented,volumeOfBottle,alcohol,pumpBottle,refillable);
-
+            createdObjectLabel.setTextFill(Color.BLACK);
             createdObjectLabel.setText(hsb.toString());
         } catch (Exception e)
         {
@@ -91,7 +92,22 @@ public class HandSanitizerBottlerCreatorViewController implements Initializable 
         //configuring the spinner with minimum, max, default and increment
         SpinnerValueFactory<Integer> spinnerValueFactory= new SpinnerValueFactory.IntegerSpinnerValueFactory(100,500,200,50);
         volumeSpinner.setValueFactory(spinnerValueFactory);
+        volumeSpinner.setEditable(true);
 
+        //update the spinner object to only allow the user to enter a whole number
+        TextField spinnerTextField = volumeSpinner.getEditor();
+        spinnerTextField.textProperty().addListener((observable, oldValue, newValue)->{
+            try{
+                createdObjectLabel.setText("");
+                Integer.parseInt(newValue);
+            }
+            catch (Exception e)
+            {
+                spinnerTextField.setText(oldValue);
+                createdObjectLabel.setText("volume can only be a whole number");
+                createdObjectLabel.setTextFill(Color.RED);
+            }
+        });
     }
 
 
