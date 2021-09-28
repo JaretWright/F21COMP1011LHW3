@@ -1,13 +1,16 @@
 package com.example.f21comp1011lhw3.Controllers;
 
 import com.example.f21comp1011lhw3.Models.HandSanitizerBottle;
+import com.example.f21comp1011lhw3.Utilities.SceneChanger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -117,5 +120,10 @@ public class HandSanitizerBottlerCreatorViewController implements Initializable 
             System.out.printf("The slider changed, old value: %.2f, new value: %.2f%n",oldValue,newValue);
             sliderLabel.setText(String.format("%.1f",newValue));
         }
+    }
+
+    @FXML
+    private void changeToSales(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event,"sales-view.fxml","Sales");
     }
 }

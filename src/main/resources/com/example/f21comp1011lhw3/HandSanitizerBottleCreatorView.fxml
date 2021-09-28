@@ -49,7 +49,7 @@
                               <Label fx:id="sliderLabel" text="Label" />
                            </children>
                         </HBox>
-                        <HBox spacing="15.0" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                        <HBox spacing="15.0" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
                            <children>
                               <CheckBox fx:id="scentedCheckBox" mnemonicParsing="false" text="Scented" />
                               <CheckBox fx:id="pumpBottleCheckBox" mnemonicParsing="false" text="Pump Bottle" />
@@ -72,13 +72,16 @@
          <left>
             <ImageView fitHeight="378.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@images/hand-sanitizer-trans-2.png" />
+                  <Image url="@images/hand-sanitizer-trans-.png" />
                </image>
             </ImageView>
          </left>
          <padding>
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
          </padding>
+         <bottom>
+            <Button mnemonicParsing="false" onAction="#changeToSales" text="View Sales Chart" BorderPane.alignment="CENTER" />
+         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>
