@@ -1,5 +1,6 @@
 package com.example.f21comp1011lhw3.Controllers;
 
+import com.example.f21comp1011lhw3.Utilities.DBUtility;
 import com.example.f21comp1011lhw3.Utilities.SceneChanger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,16 +29,7 @@ public class SalesViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        sales = new XYChart.Series<>();
-        sales.getData().add(new XYChart.Data<>("Zoetis Canada Inc", 20623));
-        sales.getData().add(new XYChart.Data<>("RW Products", 30203));
-        sales.getData().add(new XYChart.Data<>("200 ml", 201));
-        sales.getData().add(new XYChart.Data<>("250 ml", 205));
-        sales.getData().add(new XYChart.Data<>("300 ml", 179));
-        sales.getData().add(new XYChart.Data<>("350 ml", 193));
-        sales.getData().add(new XYChart.Data<>("400 ml", 158));
-
-        barChart.getData().addAll(sales);
+        barChart.getData().addAll(DBUtility.getSalesDataByCompany());
 
         //configure look and feel of the chart
 //        barChart.setTitle("Sales for Q1");

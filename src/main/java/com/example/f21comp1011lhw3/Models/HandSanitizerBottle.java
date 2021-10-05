@@ -1,6 +1,7 @@
 package com.example.f21comp1011lhw3.Models;
 
 public class HandSanitizerBottle {
+    private int bottleId, unitsSold;
     private String company, brandName;
     private boolean scented;
     private int volumeOfBottle, volumeInBottle;
@@ -9,6 +10,12 @@ public class HandSanitizerBottle {
 
     public HandSanitizerBottle(String company, String brandName, boolean scented, int volumeOfBottle, double alcoholPercentage,
                                boolean bottleTypePump, boolean refillable) {
+        this(company, brandName, scented, volumeOfBottle, alcoholPercentage, bottleTypePump, refillable, 0);
+    }
+
+    public HandSanitizerBottle(String company, String brandName, boolean scented, int volumeOfBottle,
+                                double alcoholPercentage, boolean bottleTypePump, boolean refillable,  int unitsSold ) {
+        setUnitsSold(unitsSold);
         setCompany(company);
         setBrandName(brandName);
         setScented(scented);
@@ -16,6 +23,22 @@ public class HandSanitizerBottle {
         setAlcoholPercentage(alcoholPercentage);
         setBottleTypePump(bottleTypePump);
         setRefillable(refillable);
+    }
+
+    public int getBottleId() {
+        return bottleId;
+    }
+
+    public void setBottleId(int bottleId) {
+        this.bottleId = bottleId;
+    }
+
+    public int getUnitsSold() {
+        return unitsSold;
+    }
+
+    public void setUnitsSold(int unitsSold) {
+        this.unitsSold = unitsSold;
     }
 
     public String getCompany() {
