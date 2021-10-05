@@ -29,8 +29,8 @@ public class SalesViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         sales = new XYChart.Series<>();
-        sales.getData().add(new XYChart.Data<>("100 ml", 123));
-        sales.getData().add(new XYChart.Data<>("150 ml", 150));
+        sales.getData().add(new XYChart.Data<>("Zoetis Canada Inc", 20623));
+        sales.getData().add(new XYChart.Data<>("RW Products", 30203));
         sales.getData().add(new XYChart.Data<>("200 ml", 201));
         sales.getData().add(new XYChart.Data<>("250 ml", 205));
         sales.getData().add(new XYChart.Data<>("300 ml", 179));
