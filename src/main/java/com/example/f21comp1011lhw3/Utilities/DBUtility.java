@@ -3,10 +3,7 @@ package com.example.f21comp1011lhw3.Utilities;
 import com.example.f21comp1011lhw3.Models.HandSanitizerBottle;
 import javafx.scene.chart.XYChart;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DBUtility {
@@ -82,5 +79,42 @@ public class DBUtility {
         }
 
         return bottles;
+    }
+
+    public static int saveToDB(HandSanitizerBottle hsb) throws SQLException {
+        String sql = "INSERT INTO bottles (company, brand, scented, volumeOfBottle,alcoholPercentage, pumpTop, refillable) values (?,?,?,?,?,?,?);";
+
+        int bottleId = -1;
+        ResultSet rs = null;
+
+        try (
+                Connection conn = DriverManager.getConnection(connectURL,user,pw);
+                PreparedStatement ps = conn.prepareStatement(sql, new String[] {"bottleID"});
+                ){
+
+            //bind the parameters
+            ps.setString(1, hsb.getCompany());
+            ps.setString(2,hsb.getBrandName());
+            ps.setBoolean(3, hsb.isScented());
+            ps.setInt(4,hsb.getVolumeOfBottle());
+            ps.setDouble(5, hsb.getAlcoholPercentage());
+            ps.setBoolean(6,hsb.isBottleTypePump());
+            ps.setBoolean(7,hsb.isRefillable());
+
+            //execute the insert
+            ps.executeUpdate();
+
+            rs = ps.getGeneratedKeys();
+
+            while (rs.next())
+                bottleId = rs.getInt(1);
+        } catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+            if (rs != null) rs.close();
+        }
+        return bottleId;
     }
 }

@@ -11,6 +11,7 @@ public class HandSanitizerBottle {
     public HandSanitizerBottle(String company, String brandName, boolean scented, int volumeOfBottle, double alcoholPercentage,
                                boolean bottleTypePump, boolean refillable) {
         this(company, brandName, scented, volumeOfBottle, alcoholPercentage, bottleTypePump, refillable, 0);
+        bottleId=0;
     }
 
     public HandSanitizerBottle(String company, String brandName, boolean scented, int volumeOfBottle,
@@ -142,6 +143,6 @@ public class HandSanitizerBottle {
 
     public String toString()
     {
-        return String.format("%s-%s scented: %b  volume: %d ml",company, brandName, scented,volumeOfBottle);
+        return String.format("Bottle ID: %d %s-%s scented: %b  volume: %d ml",bottleId, company, brandName, scented,volumeOfBottle);
     }
 }

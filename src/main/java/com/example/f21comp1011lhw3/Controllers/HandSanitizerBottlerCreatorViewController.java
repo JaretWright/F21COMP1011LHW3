@@ -1,6 +1,7 @@
 package com.example.f21comp1011lhw3.Controllers;
 
 import com.example.f21comp1011lhw3.Models.HandSanitizerBottle;
+import com.example.f21comp1011lhw3.Utilities.DBUtility;
 import com.example.f21comp1011lhw3.Utilities.SceneChanger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -60,8 +61,10 @@ public class HandSanitizerBottlerCreatorViewController implements Initializable 
 
         try{
             HandSanitizerBottle hsb = new HandSanitizerBottle(company,brand,scented,volumeOfBottle,alcohol,pumpBottle,refillable);
+//            hsb.setBottleId(DBUtility.saveToDB(hsb));
             createdObjectLabel.setTextFill(Color.BLACK);
             createdObjectLabel.setText(hsb.toString());
+
         } catch (Exception e)
         {
             createdObjectLabel.setText(e.getMessage());
