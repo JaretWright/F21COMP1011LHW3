@@ -59,7 +59,6 @@
                      </children>
                   </GridPane>
                   <Button fx:id="submitButton" mnemonicParsing="false" onAction="#submitButtonPushed" text="Submit" />
-                  <Label fx:id="createdObjectLabel" text="Label" />
                </children>
                <padding>
                   <Insets left="30.0" />
@@ -80,7 +79,12 @@
             <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
          </padding>
          <bottom>
-            <Button mnemonicParsing="false" onAction="#changeToSales" text="View Sales Chart" BorderPane.alignment="CENTER" />
+            <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="createdObjectLabel" text="Label" />
+                  <Button mnemonicParsing="false" onAction="#changeToSales" text="View Sales Chart" />
+               </children>
+            </VBox>
          </bottom>
       </BorderPane>
    </children>

@@ -31,7 +31,10 @@ public class HandSanitizerBottle {
     }
 
     public void setBottleId(int bottleId) {
-        this.bottleId = bottleId;
+        if (bottleId>0)
+            this.bottleId = bottleId;
+        else
+            throw new IllegalArgumentException("BottleID must be greater than 0");
     }
 
     public int getUnitsSold() {

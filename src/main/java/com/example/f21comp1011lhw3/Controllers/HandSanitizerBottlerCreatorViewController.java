@@ -61,7 +61,7 @@ public class HandSanitizerBottlerCreatorViewController implements Initializable 
 
         try{
             HandSanitizerBottle hsb = new HandSanitizerBottle(company,brand,scented,volumeOfBottle,alcohol,pumpBottle,refillable);
-//            hsb.setBottleId(DBUtility.saveToDB(hsb));
+            hsb.setBottleId(DBUtility.saveToDB(hsb));
             createdObjectLabel.setTextFill(Color.BLACK);
             createdObjectLabel.setText(hsb.toString());
 
